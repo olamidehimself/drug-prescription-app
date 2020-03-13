@@ -6,8 +6,9 @@
                     <div class="card-header">List Of Patients</div>
 
                     <div class="card-body">
-
-                        You are logged in!
+                        <select name="" id="">
+                            <option value="" v-for="patient in patients" :key="patient.id">{{patient.name}}</option>
+                        </select>
                     </div>
                 </div>
             </div>
@@ -17,8 +18,20 @@
 
 <script>
     export default {
+        data(){
+            return {
+                patients: [],
+            };
+        },
+        methods: {
+            getPatients(){
+                axios('/get/patients').then( response => this.patients = response.data );
+            }
+        },
         mounted() {
             console.log('Component mounted.')
+            this.getPatients();
         }
+        
     }
 </script>
