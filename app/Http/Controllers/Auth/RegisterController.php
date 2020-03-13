@@ -71,9 +71,10 @@ class RegisterController extends Controller
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
+            'role' => $data['role']
         ]);
 
-        switch ($date['role']) {
+        switch ($data['role']) {
             case 'doctor':
                 Doctor::create([
                     'name' => $data['name'],
@@ -90,5 +91,7 @@ class RegisterController extends Controller
                 throw new \Exception("No cases provided");
                 break;
         }
+
+        return $user;
     }
 }
