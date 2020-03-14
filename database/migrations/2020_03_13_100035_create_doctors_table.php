@@ -17,7 +17,6 @@ class CreateDoctorsTable extends Migration
             $table->id();
             $table->string('name');
             $table->unsignedInteger('user_id');
-            $table->unsignedInteger('doctor_id')->nullable;
             $table->timestamps();
         });
     }

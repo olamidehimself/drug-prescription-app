@@ -23,6 +23,7 @@ import storeData from "./store/index"
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
 Vue.component('home-component', require('./components/HomeComponent.vue').default);
+Vue.component('patient-home', require('./components/PatientHome.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

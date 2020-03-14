@@ -7,17 +7,12 @@
 
                     <div class="card-body">
                         <select name="" id="" class="col-6 offset-3" @change="fetchDetails($event)">
+                            <option>Select a patient</option>
                             <option v-for="patient in myPatients" :key="patient.id" :value="patient.id">{{patient.name}}</option>
                         </select>
                     </div>
                 </div>
-
-                <div class="card mt-5">
-                    <div class="card-header">Patient's details</div>
-                    <div class="card-body">
-                        <Prescription/>
-                    </div>
-                </div>
+                <Prescription/>
             </div>
         </div>
     </div>

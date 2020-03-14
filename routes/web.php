@@ -20,5 +20,9 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/patient', 'HomeController@patient')->name('patient');
+Route::post('/home', 'DoctorsController@addPrescription');
 Route::get('/get/patients', 'DoctorsController@getPatients');
 Route::get('/get/prescription/{id}', 'DoctorsController@getPrescription');
+Route::get('/get/patient/{id}', 'DoctorsController@patientInfo');
+Route::delete('/delete/prescription/{id}', 'DoctorsController@deletePrescription');

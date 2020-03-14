@@ -3,11 +3,13 @@ import axios from 'axios';
 const state = {
     patients: [],
     prescription: [],
+    patient:[]
 };
 
 const getters = {
     myPatients: state => state.patients,
-    patientPrescription: state => state.prescription
+    patientPrescription: state => state.prescription,
+    patient: state => state.patient
 };
 
 const actions = {
@@ -20,21 +22,37 @@ const actions = {
 
     async fetchDetails({commit}, e){
         // console.log(e);
-        const id = parseInt(e.target.value);
+        const id = e ? parseInt(e.target.value): null;
         const response = await axios.get(`/get/prescription/${id}`);
+        const info = await axios.get(`/get/patient/${id}`);
 
-        console.log(response.data);
-        // commit('getPrescription', )
+        // console.log(response.data.prescription);
+        commit('getPrescription', response.data);
+        commit('patientInfo', info.data)
     },
 
-    async getPrescription({commit}, e) {
-        // const reponse = await axios.get('/get/prescription');
-        console.log(e);
+    async addPrescription({commit}, formData){
+        const response = await axios.post('/home', formData);
+
+        commit('newPrescription', response.data);
+    },
+
+    async deletePrescription({ commit}, id){
+        // console.log(id.id);
+        await axios.delete(`/delete/prescription/${id.id}`);
+        const prescription = await axios.get(`/get/prescription/${id.patient_id}`);
+
+        
+        commit('getPrescription', prescription.data)
     }
 };
 
 const mutations = {
-    setPatients: (state, patients) => state.patients = patients
+    setPatients: (state, patients) => state.patients = patients,
+    getPrescription: (state, prescription) => state.prescription = prescription,
+    patientInfo: (state, info) => state.patient = info,
+    newPrescription: (state, pres) => state.prescription.push(pres),
+    updatedPrescription: (state, prescription) => state.prescription = prescription,
 };
 
 export default {
