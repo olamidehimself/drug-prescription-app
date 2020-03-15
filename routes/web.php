@@ -26,3 +26,6 @@ Route::get('/get/patients', 'DoctorsController@getPatients');
 Route::get('/get/prescription/{id}', 'DoctorsController@getPrescription');
 Route::get('/get/patient/{id}', 'DoctorsController@patientInfo');
 Route::delete('/delete/prescription/{id}', 'DoctorsController@deletePrescription');
+Route::get('/patient/prescription', 'PatientsController@myPrescriptions');
+Route::put('/patient/complete/{id}', 'PatientsController@complete');
+

@@ -3,13 +3,15 @@ import axios from 'axios';
 const state = {
     patients: [],
     prescription: [],
-    patient:[]
+    patient:[],
+    myPrescriptions: []
 };
 
 const getters = {
     myPatients: state => state.patients,
     patientPrescription: state => state.prescription,
-    patient: state => state.patient
+    patient: state => state.patient,
+    pres: state => state.myPrescriptions
 };
 
 const actions = {
@@ -38,12 +40,24 @@ const actions = {
     },
 
     async deletePrescription({ commit}, id){
-        // console.log(id.id);
         await axios.delete(`/delete/prescription/${id.id}`);
         const prescription = await axios.get(`/get/prescription/${id.patient_id}`);
 
         
         commit('getPrescription', prescription.data)
+    },
+
+    async myPres({commit}){
+        const prescription = await axios.get('/patient/prescription');
+
+        commit('authPres', prescription.data);
+    },
+
+    async update({commit}, edited){
+        const response = await axios.put(`/patient/complete/${edited.id}`);
+
+        // console.log(response);
+        commit('authPres', response.data);
     }
 };
 
@@ -53,6 +67,8 @@ const mutations = {
     patientInfo: (state, info) => state.patient = info,
     newPrescription: (state, pres) => state.prescription.push(pres),
     updatedPrescription: (state, prescription) => state.prescription = prescription,
+    authPres: (state, prescription) => state.myPrescriptions = prescription,
+    // complete: (state, withCompleted) => state.myPrescriptions = withCompleted
 };
 
 export default {

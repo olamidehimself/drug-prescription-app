@@ -2,7 +2,7 @@
     <div>
         <div class="card mt-5" v-if="patient.id != null">
             <div class="card-header">Add New Dosage</div>
-            <form action="" method="post" @submit.prevent="submit(patient, $event)">
+            <form action="" method="post" @submit.prevent="submit(patient)">
                 <div class="card-body">
                     <div class="form-group">
                         <label>Patient's name</label>
@@ -52,7 +52,7 @@ export default {
     },
     methods:{
         ...mapActions(['addPrescription']),
-        submit(patient, e){
+        submit(patient){
             
             let formData = new FormData();
             formData.append('patient_id', patient.id),
@@ -67,8 +67,6 @@ export default {
             this.usage = "";
             this.notes = "";
             this.duration = "";
-
-            e.preventDefault();
         }
     }
 }

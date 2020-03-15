@@ -21,6 +21,7 @@ class CreatePrescriptionsTable extends Migration
             $table->tinyInteger('usage');
             $table->tinyInteger('duration');
             $table->string('notes')->nullable();
+            $table->boolean('completed')->default(0);
             $table->timestamps();
         });
     }
