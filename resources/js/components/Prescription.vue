@@ -44,5 +44,13 @@ i {
     float: right;
     color:darkred;
     cursor: pointer;
+    transition: 1s;
 }
+
+i:hover{
+    /* transform:scale(1.2,1.2);
+    transform: translateY(-6px); */
+    transform: matrix(1.2, 0, 0, 1.2, 0, -3);
+}
+
 </style>

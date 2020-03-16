@@ -48,13 +48,19 @@ export default {
 </script>
 
 <style scoped>
+/* @font-face {
+    font-family: Product-Sans;
+    src: url('../fonts/Product\ Sans\ Regular.ttf');
+} */
+/* 495663 */
 .pres{
-    background: black;
+    background: #4f5254;
     color: white;
     padding: 1rem;
-    height: 100px;
+    height: 130px;
     border-radius: 5px;
     cursor: pointer;
+    overflow-y: auto;
 }
 
 .completed{

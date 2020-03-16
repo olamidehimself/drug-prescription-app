@@ -6709,7 +6709,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.pres[data-v-52ec3b2e]{\r\n    background: black;\r\n    color: white;\r\n    padding: 1rem;\r\n    height: 100px;\r\n    border-radius: 5px;\r\n    cursor: pointer;\n}\n.completed[data-v-52ec3b2e]{\r\n    background: red;\n}\r\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\r\n/* @font-face {\r\n    font-family: Product-Sans;\r\n    src: url('../fonts/Product\\ Sans\\ Regular.ttf');\r\n} */\r\n/* 495663 */\n.pres[data-v-52ec3b2e]{\r\n    background: #4f5254;\r\n    color: white;\r\n    padding: 1rem;\r\n    height: 130px;\r\n    border-radius: 5px;\r\n    cursor: pointer;\r\n    overflow-y: auto;\n}\n.completed[data-v-52ec3b2e]{\r\n    background: red;\n}\r\n", ""]);
 
 // exports
 
@@ -6728,7 +6728,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\ni[data-v-3f5f7b05] {\r\n    float: right;\r\n    color:darkred;\r\n    cursor: pointer;\n}\r\n", ""]);
+exports.push([module.i, "\ni[data-v-3f5f7b05] {\r\n    float: right;\r\n    color:darkred;\r\n    cursor: pointer;\r\n    transition: 1s;\n}\ni[data-v-3f5f7b05]:hover{\r\n    /* transform:scale(1.2,1.2);\r\n    transform: translateY(-6px); */\r\n    transform: matrix(1.2, 0, 0, 1.2, 0, -3);\n}\r\n\r\n", ""]);
 
 // exports
 
