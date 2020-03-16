@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Patient;
 use App\Prescription;
 use Illuminate\Http\Request;
+use App\Mail\NewPrescription;
+use Illuminate\Support\Facades\Mail;
 
 class DoctorsController extends Controller
 {
@@ -20,6 +22,7 @@ class DoctorsController extends Controller
     public function addPrescription(Request $request)
     {
         $doctor = auth()->user()->doctor;
+        $patient = Patient::find($request->patient_id);
 
         $prescription = Prescription::create([
             'prescription' => $request->prescription,
@@ -30,11 +33,14 @@ class DoctorsController extends Controller
             'notes' => $request->notes
         ]);
 
+        Mail::to($patient->user->email)->send(new NewPrescription($patient, $prescription));
+
         return response()->json($prescription, 200);
     }
 
     public function getPrescription($id)
     {
+        // dd($id);
         $doctor = auth()->user()->doctor;
         $prescription = Prescription::where('patient_id', $id)->where('doctor_id', $doctor->id)->get();
         $patient = Patient::find($id);
