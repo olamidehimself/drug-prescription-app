@@ -67,6 +67,7 @@
                             <div class="col-md-6">
                                 {{-- <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required> --}}
                                 <select name="role" id="role" class="form-control" required>
+                                    <option selected disabled>Select a role</option>
                                     <option value="doctor">Doctor</option>
                                     <option value="patient">Patient</option>
                                 </select>
