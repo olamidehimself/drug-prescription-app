@@ -33,6 +33,7 @@ class DoctorsController extends Controller
             'notes' => $request->notes
         ]);
 
+        dd($patient->user->email);
         Mail::to($patient->user->email)->send(new NewPrescription($patient, $prescription));
 
         return response()->json($prescription, 200);
