@@ -2163,6 +2163,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
 Vue.use(__webpack_require__(/*! vue-moment */ "./node_modules/vue-moment/dist/vue-moment.js"));
 
 
@@ -42518,11 +42520,17 @@ var render = function() {
                   _vm._v(" "),
                   _c("br"),
                   _vm._v(" "),
-                  detail.completed == true
-                    ? _c("b", [_vm._v("Completed: Yes")])
-                    : detail.completed == false
-                    ? _c("b", [_vm._v("Completed: No")])
-                    : _vm._e(),
+                  _c("b", [
+                    _vm._v(
+                      "Date Prescribed: " +
+                        _vm._s(
+                          _vm._f("moment")(
+                            detail.created_at,
+                            "dddd, MMMM Do YYYY"
+                          )
+                        )
+                    )
+                  ]),
                   _vm._v(" "),
                   _c("br"),
                   _vm._v(" "),
@@ -42538,6 +42546,14 @@ var render = function() {
                             )
                         )
                       ])
+                    : _vm._e(),
+                  _vm._v(" "),
+                  _c("br"),
+                  _vm._v(" "),
+                  detail.completed == true
+                    ? _c("b", [_vm._v("Completed: Yes")])
+                    : detail.completed == false
+                    ? _c("b", [_vm._v("Completed: No")])
                     : _vm._e()
                 ]
               )

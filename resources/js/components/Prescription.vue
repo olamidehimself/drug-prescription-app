@@ -15,10 +15,12 @@
                         <b>Dosage</b>: {{detail.usage}} time(s) daily for a duration of {{detail.duration}} days.
                         <i class="material-icons" style="float:right" @click="deletePres(detail)" v-if="detail.completed == false">delete</i>
                         <br>
+                        <b>Date Prescribed: {{detail.created_at | moment("dddd, MMMM Do YYYY")}}</b>
+                        <br> 
+                        <b v-if="detail.completed == true">Date Completed: {{detail.updated_at | moment("dddd, MMMM Do YYYY")}}</b>
+                        <br>
                         <b v-if="detail.completed == true">Completed: Yes</b> 
                         <b v-else-if="detail.completed == false">Completed: No</b>
-                        <br>
-                        <b v-if="detail.completed == true">Date Completed: {{detail.updated_at | moment("dddd, MMMM Do YYYY")}}</b> 
                     </li>
                 </ul>
             </div>

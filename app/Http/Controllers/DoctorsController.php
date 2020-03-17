@@ -43,7 +43,7 @@ class DoctorsController extends Controller
     {
         // dd($id);
         $doctor = auth()->user()->doctor;
-        $prescription = Prescription::where('patient_id', $id)->where('doctor_id', $doctor->id)->get();
+        $prescription = Prescription::where('patient_id', $id)->where('doctor_id', $doctor->id)->orderBy('id','desc')->get();
         $patient = Patient::find($id);
 
         return response()->json($prescription, 200);
