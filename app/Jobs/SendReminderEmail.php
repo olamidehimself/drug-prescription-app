@@ -14,15 +14,15 @@ class SendReminderEmail implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
-    protected $unique_emails;
+    protected $mails;
     /**
      * Create a new job instance.
      *
      * @return void
      */
-    public function __construct($unique_emails)
+    public function __construct($mails)
     {
-        $this->unique_emails = $unique_emails;
+        $this->mails = $mails;
     }
 
     /**
@@ -32,6 +32,6 @@ class SendReminderEmail implements ShouldQueue
      */
     public function handle()
     {
-        Mail::to($this->unique_emails)->send(new EmailReminder());
+        Mail::to($this->mails)->send(new EmailReminder());
     }
 }

@@ -52,7 +52,10 @@ class SendReminderEmails extends Command
         $unique_emails = array_unique($data_emails);
         
         // dd(...$unique_emails);
-        Queue::push(new SendReminderEmail(...$unique_emails));
+        foreach($unique_emails as $mails){
+            Queue::push(new SendReminderEmail($mails));
+        }
+        
         
     }
 }
