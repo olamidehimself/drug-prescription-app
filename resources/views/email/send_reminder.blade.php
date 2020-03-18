@@ -1,10 +1,10 @@
 @component('mail::message')
-# Introduction
+# Hello, Patient
 
-The body of your message.
+This mail is to remind is to remind you that you have pending prescriptions not yet matk as completed
 
-@component('mail::button', ['url' => ''])
-Button Text
+@component('mail::button', ['url' => config('app.url')])
+Click here to login
 @endcomponent
 
 Thanks,<br>

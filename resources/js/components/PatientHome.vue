@@ -6,7 +6,7 @@
                     <div class="card-header">Your Prescriptions</div>
                         
                     <div class="card-body">
-                        <div><i class="fa fa-info-circle"></i><span v-if="pres.length == 0">Welcome! You don't have any pending subscriptions</span>
+                        <div><i class="fa fa-info-circle"></i><span v-if="pres.length == 0">Welcome! You don't have any pending prescriptions</span>
                         <span style="display:inline" v-else>Double click on a Prescription card to mark as complete.</span></div>
                         
                         <div class="pres mb-3" v-for="detail in pres" :key="detail.id" @dblclick="toComplete(detail)" :class="{'completed': detail.completed}">
