@@ -65,7 +65,7 @@ const mutations = {
     setPatients: (state, patients) => state.patients = patients,
     getPrescription: (state, prescription) => state.prescription = prescription,
     patientInfo: (state, info) => state.patient = info,
-    newPrescription: (state, pres) => state.prescription.push(pres),
+    newPrescription: (state, pres) => state.prescription.unshift(pres),
     updatedPrescription: (state, prescription) => state.prescription = prescription,
     authPres: (state, prescription) => state.myPrescriptions = prescription,
     // complete: (state, withCompleted) => state.myPrescriptions = withCompleted

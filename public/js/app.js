@@ -2092,6 +2092,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
 Vue.use(__webpack_require__(/*! vue-moment */ "./node_modules/vue-moment/dist/vue-moment.js"));
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -6747,7 +6748,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\r\n/* @font-face {\r\n    font-family: Product-Sans;\r\n    src: url('../fonts/Product\\ Sans\\ Regular.ttf');\r\n} */\r\n/* 495663 */\n.pres[data-v-52ec3b2e]{\r\n    background: #4f5254;\r\n    color: white;\r\n    padding: 1rem;\r\n    height: 130px;\r\n    border-radius: 5px;\r\n    cursor: pointer;\r\n    overflow-y: auto;\n}\n.completed[data-v-52ec3b2e]{\r\n    background: #e31739;\n}\r\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\r\n/* @font-face {\r\n    font-family: Product-Sans;\r\n    src: url('../fonts/Product\\ Sans\\ Regular.ttf');\r\n} */\r\n/* 495663 */\n.pres[data-v-52ec3b2e]{\r\n    background: #4f5254;\r\n    color: white;\r\n    padding: 1rem;\r\n    height: 130px;\r\n    border-radius: 5px;\r\n    cursor: pointer;\r\n    overflow-y: auto;\n}\n.completed[data-v-52ec3b2e]{\r\n    background: #e31739;\n}\r\n", ""]);
 
 // exports
 
@@ -42364,7 +42365,20 @@ var render = function() {
             "div",
             { staticClass: "card-body" },
             [
-              _vm._m(0),
+              _c("div", [
+                _c("i", { staticClass: "fa fa-info-circle" }),
+                _vm.pres.length == 0
+                  ? _c("span", [
+                      _vm._v(
+                        "Welcome! You don't have any pending subscriptions"
+                      )
+                    ])
+                  : _c("span", { staticStyle: { display: "inline" } }, [
+                      _vm._v(
+                        "Double click on a Prescription card to mark as complete."
+                      )
+                    ])
+              ]),
               _vm._v(" "),
               _vm._l(_vm.pres, function(detail) {
                 return _c(
@@ -42422,19 +42436,7 @@ var render = function() {
     ])
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", [
-      _c("i", { staticClass: "fa fa-info-circle" }),
-      _c("span", { staticStyle: { display: "inline" } }, [
-        _vm._v("Double click on a Prescription card to mark as complete.")
-      ])
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -61222,7 +61224,7 @@ var mutations = {
     return state.patient = info;
   },
   newPrescription: function newPrescription(state, pres) {
-    return state.prescription.push(pres);
+    return state.prescription.unshift(pres);
   },
   updatedPrescription: function updatedPrescription(state, prescription) {
     return state.prescription = prescription;

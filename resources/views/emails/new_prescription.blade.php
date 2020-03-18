@@ -7,9 +7,9 @@ Hello, {{ $patient->name }}!
 @endcomponent
 
 @component('mail::table')
-| Prescription       | Dosage        | Duration  |
+| Prescription       | Usage        | Duration  |
 | :------------------ |:-------------| :--------|
-| {{$prescription->prescription}}| {{$prescription->usage}} daily | {{$prescription->daily}} days     |
+| {{$prescription->prescription}}| {{$prescription->usage}} daily | {{$prescription->duration}} days     |
 @endcomponent
 
 
